@@ -62,3 +62,31 @@ func arrayAvg(intArray : [Int]) -> Int { //could work in some way to use arrayAd
     }
     return sum / intArray.count
 }
+
+//tuple functions
+func tupleOp(tuple1: (Int, Int), tuple2: (Int, Int), op: ((Int, Int), (Int, Int)) -> (Int, Int)) -> (Int, Int) {
+    return op(tuple1, tuple2)
+}
+
+func tupleAdd(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
+    let result = (tuple1.0 + tuple2.0, tuple1.1 + tuple2.1)
+    return result
+}
+
+func tupleSub(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
+    let result = (tuple1.0 - tuple2.0, tuple1.1 - tuple2.1)
+    return result
+}
+
+//dictionary functions
+func dictOp(dict1: [String:Int], dict2: [String:Int], op: ([String:Int], [String:Int]) -> [String:Int]) -> [String:Int] {
+    return op(dict1, dict2)
+}
+
+func dictAdd() {
+    
+}
+
+func dictSub() {
+    
+}
