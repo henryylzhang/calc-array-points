@@ -83,10 +83,18 @@ func dictOp(dict1: [String:Int], dict2: [String:Int], op: ([String:Int], [String
     return op(dict1, dict2)
 }
 
-func dictAdd() {
-    
+func dictAdd(dict1: [String:Int], dict2: [String:Int]) -> [String:Int] {
+    var result = [String:Int]()
+    for (key, _) in dict1 {
+        result[key] = dict1[key]! + dict2[key]!
+    }
+    return result
 }
 
-func dictSub() {
-    
+func dictSub(dict1: [String:Int], dict2: [String:Int]) -> [String:Int] {
+    var result = [String:Int]()
+    for (key, _) in dict1 {
+        result[key] = dict1[key]! - dict2[key]!
+    }
+    return result
 }
