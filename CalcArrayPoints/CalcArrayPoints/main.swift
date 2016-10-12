@@ -91,14 +91,12 @@ func subtract(p1: [String:Int], p2: [String:Int]) -> [String:Int] {
     return result
 }
 
-let dictionaryIntTest1 = [
-    "x" : 2,
-    "y" : 6
-]
-let dictionaryIntTest2 = [
-    "x" : 5,
-    "y" : 4
-]
+//func add(p1: [String:Double], p2: [String:Double]) -> [String:Double] { <---- This works, it's not great, but it does for Double and Ints
+//    var result = [String:Double]()
+//    for (key, _) in p1 {
+//        result[key] = p1[key]! - p2[key]!
+//    }
+//    return result
+//}
 
-print(subtract(p1: dictionaryIntTest1, p2: dictionaryIntTest2))
 
