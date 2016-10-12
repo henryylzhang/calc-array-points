@@ -2,99 +2,103 @@
 //  main.swift
 //  CalcArrayPoints
 //
-//  Created by Student User on 10/8/16.
+//  Created by Henry Zhang on 10/8/16.
 //  Copyright © 2016 henryylzhang. All rights reserved.
 //
 
 import Foundation
 
 //arithmetic functions
-func mathOp(int1 : Int, int2 : Int, op : (Int, Int) -> Int) -> Int {
-    return op(int1, int2)
+func mathOperation(left : Int, right : Int, operation : (Int, Int) -> Int) -> Int {
+    return operation(left, right)
 }
 
-func addOp(int1 : Int, int2 : Int) -> Int {
-    return int1 + int2
+func add(left : Int, right : Int) -> Int {
+    return left + right
 }
 
-func subOp(int1 : Int, int2 : Int) -> Int {
-    return int1 - int2
+func subtract(left : Int, right : Int) -> Int {
+    return left - right
 }
 
-func mulOp(int1 : Int, int2 : Int) -> Int {
-    return int1 * int2
+func multiply(left : Int, right : Int) -> Int {
+    return left * right
 }
 
-func divOp(int1 : Int, int2 : Int) -> Int {
-    return int1 / int2
+func divide(left : Int, right : Int) -> Int {
+    return left / right
 }
 
 
 //array functions
-func arrayOp(intArray : [Int], op: ([Int]) -> Int) -> Int {
-    return op(intArray)
+func reduce(array : [Int], operation: ([Int]) -> Int) -> Int {
+    return operation(array)
 }
 
-func arrayAdd(intArray : [Int]) -> Int {
+func add(array : [Int]) -> Int { //could use basic add function
     var sum = 0
-    for num in intArray {
+    for num in array {
         sum += num
     }
     return sum
 }
 
-func arrayMul(intArray : [Int]) -> Int {
+func multiply(array : [Int]) -> Int {
     var product = 1
-    for num in intArray {
+    for num in array {
         product *= num
     }
     return product
 }
 
-func arrayCount(intArray : [Int]) -> Int {
-    return intArray.count
+func count(array : [Int]) -> Int {
+    return array.count
 }
 
-func arrayAvg(intArray : [Int]) -> Int { //could work in some way to use arrayAdd
+func average(array : [Int]) -> Int { //could work in some way to use add
     var sum = 0
-    for num in intArray {
+    for num in array {
         sum += num
     }
-    return sum / intArray.count
+    return sum / array.count
 }
 
 //tuple functions
-func tupleOp(tuple1: (Int, Int), tuple2: (Int, Int), op: ((Int, Int), (Int, Int)) -> (Int, Int)) -> (Int, Int) {
-    return op(tuple1, tuple2)
-}
-
-func tupleAdd(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
+func add(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
     let result = (tuple1.0 + tuple2.0, tuple1.1 + tuple2.1)
     return result
 }
 
-func tupleSub(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
+func subtract(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
     let result = (tuple1.0 - tuple2.0, tuple1.1 - tuple2.1)
     return result
 }
 
 //dictionary functions
-func dictOp(dict1: [String:Int], dict2: [String:Int], op: ([String:Int], [String:Int]) -> [String:Int]) -> [String:Int] {
-    return op(dict1, dict2)
-}
-
-func dictAdd(dict1: [String:Int], dict2: [String:Int]) -> [String:Int] {
+func add(p1: [String:Int], p2: [String:Int]) -> [String:Int] {
     var result = [String:Int]()
-    for (key, _) in dict1 {
-        result[key] = dict1[key]! + dict2[key]!
+    for (key, _) in p1 { //should handle non x and y situations
+        result[key] = p1[key]! + p2[key]!
     }
     return result
 }
 
-func dictSub(dict1: [String:Int], dict2: [String:Int]) -> [String:Int] {
+func subtract(p1: [String:Int], p2: [String:Int]) -> [String:Int] {
     var result = [String:Int]()
-    for (key, _) in dict1 {
-        result[key] = dict1[key]! - dict2[key]!
+    for (key, _) in p1 {
+        result[key] = p1[key]! - p2[key]!
     }
     return result
 }
+
+let dictionaryIntTest1 = [
+    "x" : 2,
+    "y" : 6
+]
+let dictionaryIntTest2 = [
+    "x" : 5,
+    "y" : 4
+]
+
+print(subtract(p1: dictionaryIntTest1, p2: dictionaryIntTest2))
+
